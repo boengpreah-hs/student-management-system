@@ -1,0 +1,88 @@
+{
+  "entities": {
+    "Student": {
+      "title": "Student",
+      "description": "Student information record for enrollment and classroom allocation.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique numeric ID of the student" },
+        "lastName": { "type": "string" },
+        "firstName": { "type": "string" },
+        "gender": { "type": "string", "enum": ["ប្រុស", "ស្រី"] },
+        "dob": { "type": "string", "format": "date" },
+        "grade": { "type": "string" },
+        "classType": { "type": "string", "enum": ["ទូទៅ", "វិទ្យាសាស្ត្រ", "សង្គម"] },
+        "room": { "type": "string" },
+        "pobVillage": { "type": "string" },
+        "pobCommune": { "type": "string" },
+        "pobDistrict": { "type": "string" },
+        "pobProvince": { "type": "string" },
+        "fatherName": { "type": "string" },
+        "fatherJob": { "type": "string" },
+        "motherName": { "type": "string" },
+        "motherJob": { "type": "string" },
+        "guardianPhone": { "type": "string" },
+        "other": { "type": "string" }
+      },
+      "required": ["id", "lastName", "firstName", "gender", "dob", "grade", "classType"]
+    },
+    "Teacher": {
+      "title": "Teacher",
+      "description": "Teacher profile in charge of specific student classrooms.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique teacher profile identifier" },
+        "name": { "type": "string" },
+        "gender": { "type": "string", "enum": ["ប្រុស", "ស្រី"] },
+        "phone": { "type": "string" },
+        "grade": { "type": "string" },
+        "room": { "type": "string" }
+      },
+      "required": ["id", "name", "gender", "phone", "grade", "room"]
+    },
+    "SchoolSettings": {
+      "title": "SchoolSettings",
+      "description": "Global school configuration settings including logo and academic year.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "logo": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "academicYear": { "type": "string" }
+      },
+      "required": ["name", "phone", "address", "academicYear"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Multi-user authentication profile settings for roles.",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "role": { "type": "string", "enum": ["Admin", "User1", "User2"] },
+        "label": { "type": "string" },
+        "avatar": { "type": "string" },
+        "customConfigured": { "type": "boolean" }
+      },
+      "required": ["username", "role", "label", "avatar", "customConfigured"]
+    }
+  },
+  "firestore": {
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Collection of all enrolled and previous students."
+    },
+    "/teachers/{teacherId}": {
+      "schema": "Teacher",
+      "description": "Collection of all active classroom teachers."
+    },
+    "/settings/school": {
+      "schema": "SchoolSettings",
+      "description": "Global document for school profile settings."
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Configuration metadata for user roles."
+    }
+  }
+}

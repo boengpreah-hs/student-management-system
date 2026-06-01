@@ -1,0 +1,6 @@
+{
+  "name": "ប្រព័ន្ធគ្រប់គ្រងព័ត៌មានសិស្ស",
+  "description": "ប្រព័ន្ធគ្រប់គ្រងព័ត៌មានសិស្ស និងគ្រូបន្ទុកថ្នាក់ កម្រិតវិទ្យាល័យ ជាមួយការបែងចែកថ្នាក់ស្វ័យប្រវត្តិ របាយការណ៍បោះពុម្ព និងការតភ្ជាប់ Firestore database ដំណើរការ Real-time-Multi User",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
